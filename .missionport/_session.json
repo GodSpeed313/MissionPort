@@ -1,0 +1,6 @@
+{
+  "activeNotebook": "pi-script",
+  "injectedAt": null,
+  "agentTarget": "claude-code",
+  "notes": "Update injectedAt timestamp when context is pulled into a session"
+}

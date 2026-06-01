@@ -1,0 +1,67 @@
+{
+  "name": "missionport",
+  "displayName": "MissionPort",
+  "description": "Bridge NotebookLM to your developer workspace",
+  "version": "0.0.1",
+  "publisher": "godspeed313",
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "categories": ["Other"],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "missionport.injectContext",
+        "title": "MissionPort: Pull Mission Context"
+      },
+      {
+        "command": "missionport.refresh",
+        "title": "MissionPort: Refresh",
+        "icon": "$(refresh)"
+      }
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "missionport",
+          "title": "MissionPort",
+          "icon": "$(rocket)"
+        }
+      ]
+    },
+    "views": {
+      "missionport": [
+        {
+          "id": "missionport.notebooks",
+          "name": "Mission Context"
+        }
+      ]
+    },
+    "menus": {
+      "view/title": [
+        {
+          "command": "missionport.refresh",
+          "when": "view == missionport.notebooks",
+          "group": "navigation"
+        },
+        {
+          "command": "missionport.injectContext",
+          "when": "view == missionport.notebooks",
+          "group": "navigation"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.90.0",
+    "@types/node": "^20.0.0",
+    "typescript": "^5.4.0"
+  }
+}
